@@ -3,17 +3,15 @@ import os
 from pymongo import MongoClient
 from bson import ObjectId
 from flask_cors import CORS
-from dotenv import load_dotenv
-load_dotenv()
 
 
 
 app = Flask(__name__)
 CORS(app)
 
-mongo_uri = os.environ.get("MONGODB_URI")
-if not mongo_uri:
-    raise RuntimeError("MONGODB_URI is not set. Please set it as an environment variable.")
+mongo_uri = "mongodb+srv://replay:Ss211392634@uireplay.dhzs2t0.mongodb.net/replay_db?retryWrites=true&w=majority"
+
+
 client = MongoClient(mongo_uri)
 
 db = client["replay_db"]
