@@ -1,18 +1,24 @@
 from flask import Flask, jsonify, request
 import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from bson import ObjectId
 from flask_cors import CORS
 
 
 
+
 app = Flask(__name__)
 CORS(app)
 
-mongo_uri = "mongodb+srv://replay:Ss211392634@uireplay.dhzs2t0.mongodb.net/replay_db?retryWrites=true&w=majority"
+load_dotenv()
 
+MONGO_URI = os.getenv("MONGO_URI")
+if not MONGO_URI:
+    raise RuntimeError("MONGO_URI is not set")
 
-client = MongoClient(mongo_uri)
+client = MongoClient(MONGO_URI)
+
 
 db = client["replay_db"]
 sessions_col = db["sessions"]
