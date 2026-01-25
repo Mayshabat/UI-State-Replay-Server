@@ -8,10 +8,13 @@ to create, retrieve, update, and delete sessions.
 ---
 
 ## ✨ Tech Stack
+
 - Python + Flask
 - MongoDB Atlas (PyMongo)
 - Flask-CORS
 - Environment variables via `.env` (python-dotenv)
+- Deployed to Render (Cloud)
+
 
 ---
 
